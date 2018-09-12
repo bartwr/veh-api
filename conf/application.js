@@ -4,7 +4,7 @@
 */
 
 module.exports = {
-	mono: {
+    mono: {
 		// See https://terrajs.org/mono/configuration/modules
 		modules: [
 			'mono-doc',

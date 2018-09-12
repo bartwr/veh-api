@@ -24,7 +24,7 @@ module.exports = [
     },
     {
         method: 'GET',
-        path: '/data/of/:deviceId',
+        path: '/data/of/:publickey',
         // validation: dataValidation.listDeviceDataEntries,
         handler: dataController.listDeviceDataEntries,
         doc: {

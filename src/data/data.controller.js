@@ -1,23 +1,35 @@
-const { HttpError } = require('mono-core')
-const { getFindOptions } = require('mono-mongodb')
+const {HttpError} = require('mono-core')
+const {getFindOptions} = require('mono-mongodb')
+const axios = require('axios');
+const { conf } = require('mono-core')
 
-// const Data = require('./todos.service')
+
 
 exports.listAllDataEntries = async (req, res) => {
-	const data = ['test','test']
+    const data = ['test', 'test']
 
-	res.json(data)
+    res.json(data)
 }
 
 exports.getSingleDataEntry = async (req, res) => {
-	const entryId = req.params.id
-    const data = ['test' + entryId]
-
-    res.json(data)
+    const entryId = req.params.id
+    const bigchaindb = conf.mono.bigchaindb
+    const data = axios.get(bigchaindb.url + bigchaindb.assets + entryId)
+        .then(function (response) {
+            res.json(response.data)
+        })
+        .catch(function (error) {
+            res.json(error.message)
+        })
 }
 exports.listDeviceDataEntries = async (req, res) => {
-	const deviceId = req.params.deviceId
-    const data = ['test' + deviceId]
-
-    res.json(data)
+    const publickey = req.params.publickey
+    const bigchaindb = conf.mono.bigchaindb
+    const data = axios.get(bigchaindb.url + bigchaindb.outputs + publickey)
+        .then(function (response) {
+            res.json(response.data)
+        })
+        .catch(function (error) {
+            res.json(error.message)
+        })
 }
