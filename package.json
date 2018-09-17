@@ -18,17 +18,20 @@
   "license": "MIT",
   "dependencies": {
     "axios": "^0.18.0",
+    "bigchaindb-driver": "^4.1.0",
+    "bigchaindb-orm": "^3.0.1",
     "cross-env": "^5.1.1",
     "mongodb-utils": "latest",
     "mono-core": "latest",
     "mono-doc": "latest",
-    "mono-mongodb": "latest"
+    "mono-mongodb": "latest",
+    "ramda": "^0.25.0"
   },
   "devDependencies": {
-    "mono-test-utils": "^1.2.3",
     "ava": "^0.25.0",
     "codecov": "^3.0.0",
     "eslint": "^4.13.1",
+    "mono-test-utils": "^1.2.3",
     "nyc": "^11.3.0"
   }
 }
